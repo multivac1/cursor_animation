@@ -44,7 +44,7 @@ nav {
     transition-property: background, transform;
     transform-origin: 100% 100%;
     z-index: -1;
-    backdrop-filter: grayscale();
+    backdrop-filter: hue-rotate(120deg);
 }
 
 .link-grow {
