@@ -19,13 +19,19 @@ navLinks.forEach(link => {
     });
 });
 
-let app = new PIXI.Application({width: 489, height: 694});
-document.body.appendChild(app.view);
+// PIXI JS for 3D effect
+const containerImg = document.querySelector('.img-pixi');
+
+const widthPixi = 489;
+const heightPixi = 694;
+
+let app = new PIXI.Application({width: widthPixi, height: heightPixi});
+containerImg.appendChild(app.view);
 
 let img = new PIXI.Sprite.from("pipper.png");
 
-img.width = 489;
-img.height = 694;
+img.width = widthPixi;
+img.height = heightPixi;
 
 app.stage.addChild(img);
 
@@ -36,6 +42,6 @@ displacementFilter = new PIXI.filters.DisplacementFilter(depthMap);
 app.stage.filters = [displacementFilter];
 window.onmousemove = function (e) {
     displacementFilter.scale.x = (window.innerWidth / 2 - e.clientX) / 100;
-    
+
     displacementFilter.scale.y = (window.innerHeight / 2 - e.clientY) / 100;
 }
